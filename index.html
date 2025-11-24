@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Дуэт ведущих «Белки» — ведущая и диджей</title>
+  <meta name="description" content="Дуэт ведущих «Белки» — Татьяна и Виталий. Ведущая и диджей на свадьбы, юбилеи, корпоративы и семейные праздники в Москве и области." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #02091a;
+      --accent: #f97316;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius: 20px;
+      --max-width: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.96), rgba(2,6,23,0.7), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.15);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      height: 52px;
+      transform: scaleX(-1);
+      display: block;
+    }
+
+    .logo-text-main {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav-phone {
+      white-space: nowrap;
+      color: var(--muted);
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all .18s ease;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #fb923c, #f97316);
+      box-shadow: 0 10px 20px rgba(249,115,22,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(249,115,22,0.45);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(15,23,42,1);
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 36px 16px;
+    }
+
+    .hero {
+      padding-top: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.98);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 15%, #fee2e2, #fb923c, #7c2d12);
+      box-shadow: 0 0 14px rgba(248,113,113,0.7);
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 44px);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .hero-highlight { color: #fed7aa; }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub strong { color: #e5e7eb; }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-note span { color: #bbf7d0; }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 11px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      width: min(340px, 100%);
+      border-radius: 14px;
+      display: block;
+    }
+
+    .about-text {
+      max-width: 520px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+
+    .about-text h2 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .about-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--muted);
+    }
+
+    .section-heading {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 560px;
+    }
+
+    .price-line {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .price-line span {
+      font-size: 18px;
+      color: #fee2b3;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,0.5);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .review-name {
+      margin-top: 8px;
+      color: #e5e7eb;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .review-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #facc15;
+      margin-top: 2px;
+    }
+
+    .vk-proof {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .vk-proof a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    .vk-widget-card {
+      margin-top: 18px;
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      padding: 12px;
+      width: 100%;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-wrapper {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 14px;
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 18px;
+    }
+
+    .steps {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .step-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .contact-list li {
+      margin-bottom: 8px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid #020617;
+      background: #020617;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .grid-3,
+      .reviews-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .contacts-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .about {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #vk_group_reviews { width: 100% !important; }
+      .vk-widget-card { max-width: 100%; }
+    }
+
+    @media (max-width: 520px) {
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <img src="img/mic-trophy.png" alt="Логотип дуэта ведущих Белки" class="logo-img" />
+        <div>
+          <div class="logo-text-main">Дуэт ведущих «Белки»</div>
+          <div class="logo-text-sub">ведущая + диджей</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">О нас</a>
+        <a href="#formats">Форматы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#video">Видео</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="nav-phone">
+          <a href="tel:+79266264270">+7&nbsp;926&nbsp;626-42-70</a>
+        </div>
+        <a href="https://clc.li/tAxpN" target="_blank" rel="noopener" class="btn btn-primary">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero" id="top">
+      <div>
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          дуэт ведущих · москва и область
+        </div>
+        <h1>
+          «Белки» — ведущая и диджей,<br />
+          которые <span class="hero-highlight">зажигают, а не кричат</span>.
+        </h1>
+        <p class="hero-sub">
+          Мы создаём праздники, где <strong>тёпло, живо и по-семейному</strong> —
+          без кринжовых конкурсов и неловких пауз. Свадьбы, юбилеи, корпоративы и камерные квартирники.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://clc.li/tAxpN" target="_blank" rel="noopener" class="btn btn-primary">
+            Забронировать дату
+          </a>
+          <a href="#video" class="btn btn-ghost">
+            Посмотреть, как мы работаем
+          </a>
+        </div>
+        <div class="hero-note">
+          <span>✓</span> Ориентир по бюджету — <strong>от 35&nbsp;000&nbsp;₽</strong>, точную стоимость считаем после короткого диалога.
+        </div>
+        <div class="hero-tags">
+          <div class="tag">свадьбы</div>
+          <div class="tag">юбилеи</div>
+          <div class="tag">корпоративы</div>
+          <div class="tag">семейные праздники</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="about">
+        <img src="img/belki-portrait.png" alt="Мы — дуэт ведущих Белки">
+        <div class="about-text">
+          <h2>Мы — Татьяна и Виталий</h2>
+          <p>
+            Живой, тёплый и энергичный дуэт для тех, кто хочет праздник без пошлостей,
+            без кринжа и без «конкурсов ради конкурсов».
+          </p>
+          <p>
+            Татьяна — ведущая, которая держит зал мягко и уверенно, чувствует гостей и возраст.  
+            Виталий — диджей и музыкант, который собирает танцпол и умеет работать и с хитами, и с живым звуком.
+          </p>
+          <p>
+            Мы заранее знакомимся с вашей историей, гостями и площадкой, чтобы праздник был «про вас», а не про сценарий из интернета.
+          </p>
+          <div class="about-badges">
+            <div class="about-badge">10+ лет на сцене</div>
+            <div class="about-badge">Живой звук и диджей</div>
+            <div class="about-badge">Программы без пошлостей</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <h2 class="section-heading">Форматы, в которых мы особенно сильны</h2>
+      <p class="section-sub">
+        Подбираем сценарий и динамику под ваш возраст, гостей и площадку: от камерного квартирника до
+        большого корпоратива «до утра».
+      </p>
+      <p class="price-line">
+        Бюджет программы — <span>от 35&nbsp;000&nbsp;₽</span>. Детали считаем после короткого диалога в мессенджере.
+      </p>
+
+      <div class="grid-3" style="margin-top: 18px;">
+        <div class="card">
+          <h3>Свадьбы</h3>
+          <p>
+            Нежность + драйв. Никаких «облизать колено» и странных конкурсов. Только живое общение,
+            трогательные акценты и танцпол, который не хочется отпускать.
+          </p>
+          <div class="pill-row">
+            <span class="pill">выездная церемония</span>
+            <span class="pill">банкет</span>
+            <span class="pill">первый танец</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Юбилеи и семейные дни</h3>
+          <p>
+            Праздник, где и молодёжь, и старшее поколение чувствуют себя комфортно. Без принуждения,
+            с уважением к возрасту и истории семьи.
+          </p>
+          <div class="pill-row">
+            <span class="pill">юбилеи</span>
+            <span class="pill">дни рождения</span>
+            <span class="pill">загородные встречи</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Корпоративы и квартирники</h3>
+          <p>
+            Новый год, тимбилдинг, летние корпоративы и домашние вечеринки. Помогаем снять зажатость
+            и создать атмосферу живой, доброй тусовки.
+          </p>
+          <div class="pill-row">
+            <span class="pill">новогодние программы</span>
+            <span class="pill">квартирники</span>
+            <span class="pill">open-air</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <h2 class="section-heading">Отзывы гостей и заказчиков</h2>
+      <p class="section-sub">
+        Ниже — несколько цитат в пересказе. Больше отзывов, фото и видео можно посмотреть в нашей группе ВКонтакте.
+      </p>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          «Это был тот редкий случай, когда и молодёжь, и родители не хотели расходиться до самого конца.
+          Программа без пошлости, всё по-семейному и с уважением к гостям.»
+          <div class="review-name">Андрей и Валерия</div>
+          <div class="review-tag">свадьба</div>
+        </div>
+        <div class="review-card">
+          «Юбилей прошёл как тёплый семейный фильм: немного слёз радости, много смеха и море танцев.
+          Спасибо, что учли характер нашей семьи и не делали ничего «для галочки»».
+          <div class="review-name">Елена, 50 лет</div>
+          <div class="review-tag">юбилей</div>
+        </div>
+        <div class="review-card">
+          «Коллеги наутро писали, что это лучший корпоратив за последние годы. Подбор музыки — огонь,
+          конкурсы деликатные, но очень живые. Танцевали даже самые скромные.»
+          <div class="review-name">HR-отдел, корпоратив</div>
+          <div class="review-tag">корпоратив</div>
+        </div>
+      </div>
+
+      <div class="vk-proof">
+        Больше живых отзывов, фотографий и сторис — в нашей группе ВКонтакте:<br />
+        <a href="https://vk.com/belkived" target="_blank" rel="noopener">vk.com/belkived</a>
+      </div>
+
+      <div class="vk-widget-card">
+        <div id="vk_group_reviews"></div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <h2 class="section-heading">Видео наших праздников</h2>
+      <p class="section-sub">
+        Здесь можно сразу посмотреть, как мы работаем вживую: манера ведения, энергия зала, музыка, танцпол.
+        Плейлист подтягивается напрямую из VK Video.
+      </p>
+
+      <div class="video-wrapper">
+        <div id="vk_playlist"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <h2 class="section-heading">Как забронировать нас на вашу дату</h2>
+      <p class="section-sub">
+        Пишите или звоните — коротко обсудим формат, гостей и площадку. После этого предложим варианты наполнения
+        и точную стоимость под вашу задачу.
+      </p>
+
+      <div class="contacts-grid">
+        <div class="steps">
+          <div class="step-row">
+            <div class="step-num">1</div>
+            <div>
+              <strong>Сообщение в WhatsApp или звонок</strong>
+              <div>Пишите дату, город/площадку и примерное количество гостей. Одной-двух фраз достаточно.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">2</div>
+            <div>
+              <strong>Созваниваемся и подбираем формат</strong>
+              <div>Уточняем возраст гостей, важные акценты, музыку и технические моменты.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">3</div>
+            <div>
+              <strong>Фиксируем дату предоплатой</strong>
+              <div>Закрепляем договорённости, вы вносите предоплату — дата официально за вами.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">4</div>
+            <div>
+              <strong>Готовим сценарий и музыку</strong>
+              <div>Перед праздником согласуем ключевые моменты, чтобы в день события вы просто жили своим праздником.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-label">контакты</div>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">WhatsApp</span>
+              <a href="https://clc.li/tAxpN" target="_blank" rel="noopener">Написать в один клик</a>
+            </li>
+            <li>
+              <span class="contact-label">Телефон ведущей</span>
+              <a href="tel:+79266264270">+7&nbsp;926&nbsp;626-42-70</a> — Татьяна
+            </li>
+            <li>
+              <span class="contact-label">Телефон диджея</span>
+              <a href="tel:+79263949359">+7&nbsp;926&nbsp;394-93-59</a> — Виталий
+            </li>
+            <li>
+              <span class="contact-label">VK</span>
+              <a href="https://vk.com/belkived" target="_blank" rel="noopener">vk.com/belkived</a>
+            </li>
+            <li>
+              <span class="contact-label">VK Video плейлист</span>
+              <a href="https://vkvideo.ru/playlist/11173486_3" target="_blank" rel="noopener">Смотреть плейлист целиком</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Дуэт ведущих «Белки». Все права защищены.</div>
+      <div class="footer-links">
+        <a href="#top">Наверх</a>
+        <a href="https://vk.com/belkived" target="_blank" rel="noopener">Мы в VK</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+if (typeof VK !== 'undefined') {
+  VK.Widgets.Group("vk_group_reviews", {
+      mode: 4,
+      wide: 1,
+      width: 480,
+      height: 480,
+      color1: '020617',
+      color2: 'f9fafb',
+      color3: 'f97316'
+  }, 72015374);
+
+  VK.Widgets.Playlist("vk_playlist", 11173486, 3, {
+      width: "100%",
+      height: 430
+  });
+}
+</script>
+
+</body>
+</html>
