@@ -387,27 +387,92 @@
       margin-right: auto;
     }
 
+    /* Видео-галерея */
     .video-wrapper {
       background: var(--card);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 14px;
+      padding: 16px;
     }
 
-    .video-iframe {
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .video-card {
       position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
+      border-radius: 14px;
       overflow: hidden;
-      border-radius: 12px;
+      background: radial-gradient(circle at top, rgba(248,113,22,0.15), rgba(15,23,42,1));
+      border: 1px solid rgba(148,163,184,0.45);
+      min-height: 120px;
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
-    .video-iframe iframe {
+    .video-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.65);
+      border-color: var(--accent);
+    }
+
+    .video-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #fed7aa;
+      margin-bottom: 2px;
+    }
+
+    .video-title {
+      font-size: 13px;
+      color: #f9fafb;
+    }
+
+    .video-play {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,250,252,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
+    }
+
+    .video-play::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid #f9fafb;
+      margin-left: 2px;
+    }
+
+    .video-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .video-footer a.btn-primary {
+      font-size: 12px;
+      padding: 6px 14px;
     }
 
     .contacts-grid {
@@ -510,11 +575,17 @@
       .about {
         gap: 24px;
       }
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
     }
 
     @media (max-width: 600px) {
       #vk_group_reviews { width: 100% !important; }
       .vk-widget-card { max-width: 100%; }
+      .video-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
     }
 
     @media (max-width: 520px) {
@@ -705,17 +776,40 @@
     <section class="section" id="video">
       <h2 class="section-heading">Видео наших праздников</h2>
       <p class="section-sub">
-        Здесь можно сразу посмотреть, как мы работаем вживую: манера ведения, энергия зала, музыка, танцпол.
-        Ниже встроен плейлист VK Video с нашими работами.
+        Несколько моментов в формате «как есть»: живые эмоции, танцпол и атмосфера праздника.
+        При клике ролики открываются во VK Video.
       </p>
 
       <div class="video-wrapper">
-        <div class="video-iframe">
-          <iframe
-            src="https://vkvideo.ru/playlist/11173486_3"
-            allowfullscreen
-            allow="autoplay; encrypted-media"
-          ></iframe>
+        <div class="video-grid">
+          <a class="video-card" href="https://vkvideo.ru/playlist/11173486_3" target="_blank" rel="noopener">
+            <div class="video-play"></div>
+            <div>
+              <div class="video-tag">свадьба</div>
+              <div class="video-title">Выход молодожёнов и первый танец</div>
+            </div>
+          </a>
+          <a class="video-card" href="https://vkvideo.ru/playlist/11173486_3" target="_blank" rel="noopener">
+            <div class="video-play"></div>
+            <div>
+              <div class="video-tag">танцпол</div>
+              <div class="video-title">Когда гости уже не хотят уходить домой</div>
+            </div>
+          </a>
+          <a class="video-card" href="https://vkvideo.ru/playlist/11173486_3" target="_blank" rel="noopener">
+            <div class="video-play"></div>
+            <div>
+              <div class="video-tag">ведущая + диджей</div>
+              <div class="video-title">Фрагменты нашей работы в одном плейлисте</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="video-footer">
+          <span>Плейлист открывается во ВКонтакте, чтобы не зависеть от встроенных плееров и блокировок.</span>
+          <a href="https://vkvideo.ru/playlist/11173486_3" target="_blank" rel="noopener" class="btn btn-primary">
+            Смотреть все видео
+          </a>
         </div>
       </div>
     </section>
